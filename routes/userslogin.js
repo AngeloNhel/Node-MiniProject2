@@ -9,7 +9,7 @@ router.get("/", (req, res, next) => {
     res.send(Users);
 });
 
-router.post('/', (req, res) => {
+router.post('/JoinNow', (req, res) => {
   const { firstName, lastName, email, password } = req.body;
   if (firstName && lastName && email && password) {
     const newUser = { firstName, lastName, email, password };
@@ -20,5 +20,17 @@ router.post('/', (req, res) => {
   }
 });
 
+
+router.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  const user = Users.find(
+    (user) => user.email === email && user.password === password
+  );
+  if (user) {
+    res.send({ success: true });
+  } else {
+    res.send({ success: false });
+  }
+});
 
 module.exports = router;
