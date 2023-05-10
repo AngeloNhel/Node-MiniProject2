@@ -9,6 +9,11 @@ var usersRouter = require('./routes/users');
 var loginAPIRouter = require('./routes/userslogin');
 var StayInTouchAPIRouter = require('./routes/usersStayInTouch');
 var feedbackRouter = require('./routes/feedback');
+var productsRouter = require('./routes/products');
+var foodRouter = require('./routes/foods');
+var athomecoffeeRouter = require('./routes/athomecoffee');
+var merchRouter = require('./routes/merch');
+
 
 var cors = require('cors');
 var app = express();
@@ -29,6 +34,10 @@ app.use('/users', usersRouter);
 app.use('/userslogin',loginAPIRouter);
 app.use('/usersStayInTouch',StayInTouchAPIRouter);
 app.use('/feedback', feedbackRouter);
+app.use('/products', productsRouter);
+app.use('/foods', foodRouter);
+app.use('/athomecoffee', athomecoffeeRouter);
+app.use('/merch', merchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
